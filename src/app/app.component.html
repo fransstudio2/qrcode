@@ -9,17 +9,33 @@
   </p>
   <p>
     Format :
-    <input type="text" [(ngModel)]="format" />
+    <select [(ngModel)]="format">
+      <option value="jpeg">JPEG</option>
+      <option value="png">PNG</option>
+      <option value="gif">GIF</option>
+      <option value="svg">SVG</option>
+    </select>
   </p>
+
   <p>
     Backgroundcolor :
     <input type="text" [(ngModel)]="bgcolor" />
   </p>
+  <p>
+    Color :
+    <input type="text" [(ngModel)]="color" />
+  </p>
+  <div>
+    <button (click)="buttonGenerate()">Generate!</button>
+    <a [href]="imageData" download>
+      <button *ngIf="isGenerated">Download</button>
+    </a>
+    {{ message }}
+  </div>
 
-  <button (click)="buttonGenerate()">Generate!</button>
-  {{ download }}
+  <p>
+    <img [src]="imageData" />
+  </p>
+
+  <p></p>
 </div>
-
-<a href="[imageUrl]" download>
-  <img [src]="imageUrl" />
-</a>
